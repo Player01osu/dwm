@@ -28,45 +28,15 @@ static const char selfloatcolor[]   = "#6E236E";
 
 static const char infonormfgcolor[]           = "#323232"; //#bbbbbb
 static const char infonormbgcolor[]           = "#323232"; //#222222
-/*
-static const char infonormbordercolor[]       = "#444444";
-static const char infonormfloatcolor[]        = "#db8fd9";
-*/
 
 static const char infoselfgcolor[]            = "#323232"; //#222222
 static const char infoselbgcolor[]            = "#323232"; //#222222
-/*
-static const char infoselbordercolor[]        = "#812B81";
-static const char infoselfloatcolor[]         = "#812B81";
-*/
 
 static const char tagsnormfgcolor[]            = "#bbbbbb"; //#323232
 static const char tagsnormbgcolor[]            = "#323232"; //#222222
-/*
-static const char tagsnormbordercolor[]        = "#444444";
-static const char tagsnormfloatcolor[]         = "#db8fd9";
-*/
 
 static const char tagsselfgcolor[]             = "#a62ca6";
 static const char tagsselbgcolor[]             = "#323232"; //#222222
-/*
-static const char tagsselbordercolor[]         = "#812B81";
-static const char tagsselfloatcolor[]          = "#812B81";
-*/
-
-/*
-static const char hidnormfgcolor[]             = "#005577";
-static const char hidselfgcolor[]              = "#227799";
-static const char hidnormbgcolor[]             = "#323232"; //#222222
-static const char hidselbgcolor[]              = "#323232"; //#222222
-*/
-
-/*
-static const char urgfgcolor[]                 = "#bbbbbb";
-static const char urgbgcolor[]                 = "#323232"; //#222222
-static const char urgbordercolor[]             = "#ff0000";
-static const char urgfloatcolor[]              = "#db8fd9";
-*/
 
 static const char *colors[][4]      = {
 	/*                   fg                bg               border           float */
@@ -95,7 +65,14 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+/*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
+static const char *tags[] = { "●", "●", "●", "●", "●", "●" };
+
+static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
+static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
+static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -114,12 +91,13 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int decorhints  = 1;    /* 1 means respect decoration hints */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+  { "",        tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "",        monocle },
 };
 
 /* key definitions */

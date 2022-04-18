@@ -5,3 +5,8 @@ dwm.o
 util.o
 drw.o
 dwm
+config.h.orig
+config.h.rej
+dwm.c.orig
+dwm.c.rej
+patch.diff
