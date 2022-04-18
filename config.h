@@ -10,10 +10,10 @@ static const unsigned int gappov    = 13;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 27;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "JetBrains Mono:size=8:style=Bold:antialias=true:autohint=true",
-                                        "Font Awesome 6 Free:size=12:style=Solid:antialias=true:autohint=true",
-                                        "Material Design Icons-Regular:antialias=true:size=18" };
+static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]          = { "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true",
+                                        "Font Awesome 6 Free:size=11:style=Solid:antialias=true:autohint=true",
+                                        "Material Design Icons-Regular:antialias=true:size=15" };
 static const char dmenufont[]       =  "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true";
 
 static const char ncolor[]          = "#000000";
@@ -57,7 +57,7 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"alacritty", "--class", "spterm", NULL };
-const char *spcmd2[] = {"alacritty", "--class", "spfm", "-e", "lfub", NULL };
+const char *spcmd2[] = {"alacritty", "--class", "spfm", "-e", "todon", NULL };
 const char *spcmd3[] = {"keepassxc", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -86,7 +86,7 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,		  	 NULL,	   	1 << 8,			    0,			    -1 },
 	{ NULL,		    "spterm",		 NULL,	   	SPTAG(0),		    1,			    -1 },
 	{ NULL,		    "spfm",		   NULL,	   	SPTAG(1),		    1,			    -1 },
-	{ NULL,		    "keepassxc", NULL,	   	SPTAG(2),		    0,			    -1 },
+	{ NULL,		    "keepassxc", NULL,	   	SPTAG(2),		    1,			    -1 },
 };
 
 /* layout(s) */
@@ -136,6 +136,8 @@ static const char *brightdown[] = { "brightnessctl", "s", "5-%", NULL };
 static const char *maimcopy[]   = { "screencopy", NULL };
 static const char *maimsave[]   = { "screensave", NULL };
 static const char *killcomp[]   = { "compositorp", NULL };
+static const char *compoff[]     = { "killall", "picom", NULL };
+static const char *compon[]    = { "picom", "--experimental-backends", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -181,8 +183,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,                        movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,                        movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_t,                        setlayout,      {.v = &layouts[0]} },
+    { MODKEY,                       XK_t,                        spawn,          {.v = compon } },
 	{ MODKEY,                       XK_f,                        setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,                        setlayout,      {.v = &layouts[2]} },
+    { MODKEY,                       XK_m,                        spawn,          {.v = compoff } },
 	{ MODKEY,                       XK_space,                    setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,                    togglefloating, {0} },
 	{ MODKEY,                       XK_0,                        view,           {.ui = ~0 } },
