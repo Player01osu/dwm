@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include "dwm.c"
 
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
@@ -87,6 +88,7 @@ static const Rule rules[] = {
 	{ NULL,		    "spterm",		 NULL,	   	SPTAG(0),		    1,			    -1 },
 	{ NULL,		    "spfm",		   NULL,	   	SPTAG(1),		    1,			    -1 },
 	{ NULL,		    "keepassxc", NULL,	   	SPTAG(2),		    1,			    -1 },
+    { NULL,         "splg",     NULL,       SPTAG(3),          1,                -1 },
 };
 
 /* layout(s) */

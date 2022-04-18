@@ -10,3 +10,5 @@ config.h.rej
 dwm.c.orig
 dwm.c.rej
 patch.diff
+.cache/clangd/index
+compile_commands.json
