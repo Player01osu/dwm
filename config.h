@@ -13,7 +13,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 25;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true",
                                         "Font Awesome 6 Free:size=11:style=Solid:antialias=true:autohint=true",
-                                        "Material Design Icons-Regular:antialias=true:size=15" };
+                                        "Material Design Icons-Regular:antialias=true:size=10" };
 static const char dmenufont[]       =  "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true";
 
 static const char ncolor[]          = "#000000";
@@ -67,9 +67,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-/*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
-//static const char *tags[] = { "●", "●", "●", "●", "●", "●" };
-static const char *tags[] = { "󰧞", "󰧞", "󰧞", "󰧞", "󰧞", "󰧞" };
+static const char *tags[] = { "󰝥", "󰝥", "󰝥", "󰝥", "󰝥", "󰝥" };
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
@@ -120,6 +118,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = {
   "dmenu_run",
+  "-h", "25",
   "-m", dmenumon,
   "-fn", dmenufont,
   "-nb", normbgcolor,
