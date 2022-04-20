@@ -10,7 +10,7 @@ static const unsigned int gappov    = 13;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
+static const int horizpadbar        = 3;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 10;        /* vertical padding for statusbar */
 static const int user_bh            = 27;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true",
@@ -30,27 +30,27 @@ static const char selbgcolor[]      = "#812B81";
 static const char selbordercolor[]  = "#6E236E";
 static const char selfloatcolor[]   = "#6E236E";
 
-static const char infonormfgcolor[]           = "#323232"; //#bbbbbb
-static const char infonormbgcolor[]           = "#323232"; //#222222
+static const char infonormfgcolor[] = "#323232"; //#bbbbbb
+static const char infonormbgcolor[] = "#323232"; //#222222
 
-static const char infoselfgcolor[]            = "#323232"; //#222222
-static const char infoselbgcolor[]            = "#323232"; //#222222
+static const char infoselfgcolor[]  = "#323232"; //#222222
+static const char infoselbgcolor[]  = "#323232"; //#222222
 
-static const char tagsnormfgcolor[]            = "#bbbbbb"; //#323232
-static const char tagsnormbgcolor[]            = "#323232"; //#222222
+static const char tagsnormfgcolor[] = "#bbbbbb"; //#323232
+static const char tagsnormbgcolor[] = "#323232"; //#222222
 
-static const char tagsselfgcolor[]             = "#a62ca6";
-static const char tagsselbgcolor[]             = "#323232"; //#222222
+static const char tagsselfgcolor[]  = "#a62ca6";
+static const char tagsselbgcolor[]  = "#323232"; //#222222
 
 static const char *colors[][4]      = {
 	/*                   fg                bg               border           float */
 	[SchemeNorm]     = { normfgcolor,      normbgcolor,     normbordercolor, normfloatcolor },
 	[SchemeSel]      = { selfgcolor,       selbgcolor,      selbordercolor,  selfloatcolor },
 	[SchemeTagsSel]  = { tagsselfgcolor,   tagsselbgcolor,  ncolor,          ncolor   }, // Tagbar left selected {text,background,not used but cannot be empty}
-  [SchemeTagsNorm] = { tagsnormfgcolor,  tagsnormbgcolor, ncolor,          ncolor   }, // Tagbar left unselected {text,background,not used but cannot be empty}
-  [SchemeStatus]   = { tagsselfgcolor,   tagsselbgcolor,  ncolor,          ncolor}, // Statusbar right {text,background,not used but cannot be empty}
-  [SchemeInfoSel]  = { infoselfgcolor,   infoselbgcolor,  ncolor,          ncolor   }, // infobar middle  selected {text,background,not used but cannot be empty}
-  [SchemeInfoNorm] = { infonormfgcolor,  infonormbgcolor, ncolor,          ncolor   }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm] = { tagsnormfgcolor,  tagsnormbgcolor, ncolor,          ncolor   }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeStatus]   = { tagsselfgcolor,   tagsselbgcolor,  ncolor,          ncolor}, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { infoselfgcolor,   infoselbgcolor,  ncolor,          ncolor   }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm] = { infonormfgcolor,  infonormbgcolor, ncolor,          ncolor   }, // infobar middle  unselected {text,background,not used but cannot be empty}
 
 };
 
@@ -81,13 +81,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance     title       tags mask     isfloating   monitor */
-	{ "Gimp",	    NULL,		   	 NULL,	   	0,			      	1,			    -1 },
-	{ "Firefox",  NULL,		  	 NULL,	   	1 << 8,			    0,			    -1 },
-	{ NULL,		    "spterm",		 NULL,	   	SPTAG(0),		    1,			    -1 },
-	{ NULL,		    "spfm",		   NULL,	   	SPTAG(1),		    1,			    -1 },
-	{ NULL,		    "keepassxc", NULL,	   	SPTAG(2),		    1,			    -1 },
-    { NULL,         "splg",     NULL,       SPTAG(3),          1,                -1 },
+	/* class      instance       title       tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,          NULL,       0,             1,          -1 },
+	{ "Firefox",  NULL,          NULL,       1 << 8,        0,          -1 },
+	{ NULL,       "spterm",      NULL,       SPTAG(0),      1,          -1 },
+	{ NULL,       "spfm",        NULL,       SPTAG(1),      1,          -1 },
+	{ NULL,       "keepassxc",   NULL,       SPTAG(2),      1,          -1 },
+	{ NULL,       "splg",        NULL,       SPTAG(3),      1,          -1 },
 };
 
 /* layout(s) */
@@ -99,7 +99,7 @@ static const int decorhints  = 1;    /* 1 means respect decoration hints */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-  { "",        tile },    /* first entry is default */
+	{ "",        tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "",        monocle },
 };
@@ -119,15 +119,15 @@ static const Layout layouts[] = {
 #include <X11/XF86keysym.h>
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = {
-  "dmenu_run",
-  "-h", "25",
-  "-m", dmenumon,
-  "-fn", dmenufont,
-  "-nb", normbgcolor,
-  "-nf", normfgcolor,
-  "-sb", selbgcolor,
-  "-sf", selfgcolor,
-  NULL
+	"dmenu_run",
+	"-h", "25",
+	"-m", dmenumon,
+	"-fn", dmenufont,
+	"-nb", normbgcolor,
+	"-nf", normfgcolor,
+	"-sb", selbgcolor,
+	"-sf", selfgcolor,
+	NULL
 };
 static const char *termcmd[]    = { "alacritty", NULL };
 static const char *upvol[]      = { "pactl", "set-sink-volume", "0", "+5%", NULL };
@@ -138,20 +138,20 @@ static const char *brightdown[] = { "brightnessctl", "s", "5-%", NULL };
 static const char *maimcopy[]   = { "screencopy", NULL };
 static const char *maimsave[]   = { "screensave", NULL };
 static const char *killcomp[]   = { "compositorp", NULL };
-static const char *compoff[]     = { "killall", "picom", NULL };
-static const char *compon[]    = { "picom", "--experimental-backends", NULL };
+static const char *compoff[]    = { "killall", "picom", NULL };
+static const char *compon[]     = { "picom", "--experimental-backends", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key                          function        argument */
-  { 0,                            XF86XK_AudioRaiseVolume,     spawn,          {.v = upvol   } },
-  { 0,                            XF86XK_AudioLowerVolume,     spawn,          {.v = downvol } },
-  { 0,                            XF86XK_AudioMute,            spawn,          {.v = mutevol } },
-  { 0,                            XF86XK_MonBrightnessUp,      spawn,          {.v = brightup } },
-  { 0,                            XF86XK_MonBrightnessDown,    spawn,          {.v = brightdown } },
-  { 0,                            XK_Print,                    spawn,          {.v = maimcopy } },
-  { MODKEY,                       XK_Print,                    spawn,          {.v = maimsave } },
-  { MODKEY|ShiftMask,             XK_v,                        spawn,          {.v = killcomp } },
+	{ 0,                            XF86XK_AudioRaiseVolume,     spawn,          {.v = upvol   } },
+	{ 0,                            XF86XK_AudioLowerVolume,     spawn,          {.v = downvol } },
+	{ 0,                            XF86XK_AudioMute,            spawn,          {.v = mutevol } },
+	{ 0,                            XF86XK_MonBrightnessUp,      spawn,          {.v = brightup } },
+	{ 0,                            XF86XK_MonBrightnessDown,    spawn,          {.v = brightdown } },
+	{ 0,                            XK_Print,                    spawn,          {.v = maimcopy } },
+	{ MODKEY,                       XK_Print,                    spawn,          {.v = maimsave } },
+	{ MODKEY|ShiftMask,             XK_v,                        spawn,          {.v = killcomp } },
 	{ MODKEY,                       XK_o,                        spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,                   spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,                        togglebar,      {0} },
@@ -185,10 +185,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,                        movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,                        movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_t,                        setlayout,      {.v = &layouts[0]} },
-    { MODKEY,                       XK_t,                        spawn,          {.v = compon } },
+	{ MODKEY,                       XK_t,                        spawn,          {.v = compon } },
 	{ MODKEY,                       XK_f,                        setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,                        setlayout,      {.v = &layouts[2]} },
-    { MODKEY,                       XK_m,                        spawn,          {.v = compoff } },
+	{ MODKEY,                       XK_m,                        spawn,          {.v = compoff } },
 	{ MODKEY,                       XK_space,                    setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,                    togglefloating, {0} },
 	{ MODKEY,                       XK_0,                        view,           {.ui = ~0 } },
@@ -197,9 +197,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,                   focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,                    tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,                   tagmon,         {.i = +1 } },
-	{ MODKEY,                  			XK_grave,  	                 togglescratch,  {.ui = 0 } },
-	{ MODKEY,                  			XK_Tab,	                     togglescratch,  {.ui = 1 } },
-	{ MODKEY,                  			XK_x,	                       togglescratch,  {.ui = 2 } },
+	{ MODKEY,                       XK_grave,                    togglescratch,  {.ui = 0 } },
+	{ MODKEY,                       XK_Tab,	                     togglescratch,  {.ui = 1 } },
+	{ MODKEY,                       XK_x,                        togglescratch,  {.ui = 2 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
