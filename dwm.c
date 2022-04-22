@@ -1067,6 +1067,8 @@ void focus(Client *c)
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
 	}
 	selmon->sel = c;
+	if (selmon->lt[selmon->sellt]->arrange == monocle)
+		arrangemon(selmon);
 	drawbars();
 }
 
@@ -1428,10 +1430,17 @@ void monocle(Monitor *m)
 {
 	Client *c;
 
-	for (c = nexttiled(m->clients); c; c = nexttiled(c->next)) {
+	for (c = m->stack; c && (!ISVISIBLE(c) || c->isfloating); c = c->snext)
+		;
+	if (c && !c->isfloating) {
+		XMoveWindow(dpy, c->win, m->wx, m->wy);
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw,
 		       0);
+		c = c->snext;
 	}
+	for (; c; c = c->snext)
+		if (!c->isfloating && ISVISIBLE(c))
+			XMoveWindow(dpy, c->win, WIDTH(c) * -2, c->y);
 }
 
 void motionnotify(XEvent *e)
