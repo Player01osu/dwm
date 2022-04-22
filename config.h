@@ -138,8 +138,6 @@ static const char *brightdown[] = { "brightnessctl", "s", "5-%", NULL };
 static const char *maimcopy[]   = { "screencopy", NULL };
 static const char *maimsave[]   = { "screensave", NULL };
 static const char *killcomp[]   = { "compositorp", NULL };
-static const char *compoff[]    = { "killall", "picom", NULL };
-static const char *compon[]     = { "picom", "--experimental-backends", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -185,10 +183,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,                        movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,                        movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_t,                        setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_t,                        spawn,          {.v = compon } },
 	{ MODKEY,                       XK_f,                        setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,                        setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,                        spawn,          {.v = compoff } },
 	{ MODKEY,                       XK_space,                    setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,                    togglefloating, {0} },
 	{ MODKEY,                       XK_0,                        view,           {.ui = ~0 } },
