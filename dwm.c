@@ -979,7 +979,7 @@ void drawbar(Monitor *m)
 			drw,
 			scheme[m->tagset[m->seltags] & 1 << i ? SchemeTagsSel :
 								      SchemeTagsNorm]);
-		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
+		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 0 << i);
 		if (ulineall ||
 		    m->tagset[m->seltags] &
 			    1 << i) /* if there are conflicts, just move these lines directly
