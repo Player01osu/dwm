@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 5;        /* border pixel of windows */
+static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 11;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 11;       /* vert inner gap between windows */
@@ -27,20 +27,20 @@ static const char normfloatcolor[]  = "#db8fd9";
 
 static const char selfgcolor[]      = "#eeeeee";
 static const char selbgcolor[]      = "#812B81";
-static const char selbordercolor[]  = "#6E236E";
+static const char selbordercolor[]  = "#9b1c9b";
 static const char selfloatcolor[]   = "#6E236E";
 
-static const char infonormfgcolor[] = "#323232"; //#bbbbbb
-static const char infonormbgcolor[] = "#323232"; //#222222
+static const char infonormfgcolor[] = "#323232";
+static const char infonormbgcolor[] = "#323232";
 
-static const char infoselfgcolor[]  = "#323232"; //#222222
-static const char infoselbgcolor[]  = "#323232"; //#222222
+static const char infoselfgcolor[]  = "#323232";
+static const char infoselbgcolor[]  = "#323232";
 
-static const char tagsnormfgcolor[] = "#bbbbbb"; //#323232
-static const char tagsnormbgcolor[] = "#323232"; //#222222
+static const char tagsnormfgcolor[] = "#bbbbbb";
+static const char tagsnormbgcolor[] = "#323232";
 
 static const char tagsselfgcolor[]  = "#a62ca6";
-static const char tagsselbgcolor[]  = "#323232"; //#222222
+static const char tagsselbgcolor[]  = "#323232";
 
 static const char *colors[][4]      = {
 	/*                   fg                bg               border           float */
