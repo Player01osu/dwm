@@ -28,7 +28,7 @@ static const char normfloatcolor[]  = "#db8fd9";
 static const char selfgcolor[]      = "#eeeeee";
 static const char selbgcolor[]      = "#812B81";
 static const char selbordercolor[]  = "#9b1c9b";
-static const char selfloatcolor[]   = "#6E236E";
+static const char selfloatcolor[]   = "#9b1c9b";
 
 static const char infonormfgcolor[] = "#323232";
 static const char infonormbgcolor[] = "#323232";
@@ -138,6 +138,7 @@ static const char *brightup[]   = { "brightnessctl", "s", "+5%", NULL };
 static const char *brightdown[] = { "brightnessctl", "s", "5-%", NULL };
 static const char *maimcopy[]   = { "screencopy", NULL };
 static const char *maimsave[]   = { "screensave", NULL };
+static const char *maimname[]   = { "screenname", NULL };
 static const char *killcomp[]   = { "compositorp", NULL };
 
 #include "movestack.c"
@@ -150,6 +151,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessDown,    spawn,          {.v = brightdown } },
 	{ 0,                            XK_Print,                    spawn,          {.v = maimcopy } },
 	{ MODKEY,                       XK_Print,                    spawn,          {.v = maimsave } },
+	{ MODKEY|ShiftMask,             XK_Print,                    spawn,          {.v = maimname } },
 	{ MODKEY|ShiftMask,             XK_v,                        spawn,          {.v = killcomp } },
 	{ MODKEY,                       XK_o,                        spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,                   spawn,          {.v = termcmd } },
