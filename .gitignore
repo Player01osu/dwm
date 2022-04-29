@@ -12,3 +12,4 @@ dwm.c.rej
 patch.diff
 .cache/clangd/index
 compile_commands.json
+scheme1.h
