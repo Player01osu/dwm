@@ -140,6 +140,7 @@ static const char *maimcopy[]   = { "screencopy", NULL };
 static const char *maimsave[]   = { "screensave", NULL };
 static const char *maimname[]   = { "screenname", NULL };
 static const char *killcomp[]   = { "compositorp", NULL };
+static const char *unkeym[]    = { "unkeym", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -150,6 +151,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_MonBrightnessUp,      spawn,          {.v = brightup } },
 	{ 0,                            XF86XK_MonBrightnessDown,    spawn,          {.v = brightdown } },
 	{ 0,                            XK_Print,                    spawn,          {.v = maimcopy } },
+	{ ControlMask,                  XK_semicolon,                spawn,          {.v = unkeym } },
 	{ MODKEY,                       XK_Print,                    spawn,          {.v = maimsave } },
 	{ MODKEY|ShiftMask,             XK_Print,                    spawn,          {.v = maimname } },
 	{ MODKEY|ShiftMask,             XK_v,                        spawn,          {.v = killcomp } },
