@@ -14,6 +14,7 @@ static const int horizpadbar        = 3;        /* horizontal padding for status
 static const int vertpadbar         = 10;        /* vertical padding for statusbar */
 static const int user_bh            = 27;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true",
+                                        "Font Awesome 6 Free:size=11:style=Regular:antialias=true:autohint=true",
                                         "Font Awesome 6 Free:size=11:style=Solid:antialias=true:autohint=true",
                                         "Material Design Icons-Regular:antialias=true:size=8" };
 static const char dmenufont[]       =  "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true";
