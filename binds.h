@@ -33,7 +33,7 @@ static const char *maimcopy[]   = { "screencopy", NULL };
 static const char *maimsave[]   = { "screensave", NULL };
 static const char *maimname[]   = { "screenname", NULL };
 static const char *killcomp[]   = { "compositorp", NULL };
-static const char *unkeym[]    = { "unkeym", NULL };
+static const char *unkeym[]     = { "unkeym", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -94,6 +94,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_grave,                    togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_Tab,	                     togglescratch,  {.ui = 1 } },
 	{ MODKEY,                       XK_x,                        togglescratch,  {.ui = 2 } },
+	{ MODKEY,                       XK_p,                        togglescratch,  {.ui = 3 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

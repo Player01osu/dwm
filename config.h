@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 11;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 11;       /* vert inner gap between windows */
@@ -13,10 +13,16 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 3;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 10;        /* vertical padding for statusbar */
 static const int user_bh            = 27;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true",
-                                        "Font Awesome 6 Free:size=11:style=Regular:antialias=true:autohint=true",
-                                        "Font Awesome 6 Free:size=11:style=Solid:antialias=true:autohint=true",
+static const char *fonts[]          = { "Source Code Pro Bold:size=8:style=Bold:antialias=true:autohint=true",
+                                        "Font Awesome 6 Free:size=10:style=Regular:antialias=true:autohint=true",
+                                        "Font Awesome 6 Free:size=10:style=Solid:antialias=true:autohint=true",
+					"Noto Serif CJK JP:size=10:antialias=true:autohint=true",
                                         "Material Design Icons-Regular:antialias=true:size=8" };
+//static const char *fonts[]          = { "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true",
+//                                        "Font Awesome 6 Free:size=10:style=Regular:antialias=true:autohint=true",
+//                                        "Font Awesome 6 Free:size=10:style=Solid:antialias=true:autohint=true",
+//					"Noto Serif CJK JP:size=10:antialias=true:autohint=true",
+//                                        "Material Design Icons-Regular:antialias=true:size=8" };
 static const char dmenufont[]       =  "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true";
 
 #include "scheme.h"
@@ -28,11 +34,13 @@ typedef struct {
 const char *spcmd1[] = {"alacritty", "--class", "spterm", NULL };
 const char *spcmd2[] = {"alacritty", "--class", "spfm", "-e", "todon", NULL };
 const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd4[] = {"alacritty", "--class", "spirc", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
 	{"keepassxc",   spcmd3},
+	{"spirc",       spcmd4},
 };
 
 /* tagging */
@@ -55,7 +63,7 @@ static const Rule rules[] = {
 	{ NULL,        "spterm",      NULL,         SPTAG(0),      1,          -1 },
 	{ NULL,        "spfm",        NULL,         SPTAG(1),      1,          -1 },
 	{ NULL,        "keepassxc",   NULL,         SPTAG(2),      1,          -1 },
-	{ NULL,        "splg",        NULL,         SPTAG(3),      1,          -1 },
+	{ NULL,        "spirc",       NULL,         SPTAG(3),      1,          -1 },
 };
 
 /* layout(s) */
