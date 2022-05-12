@@ -18,12 +18,7 @@ static const char *fonts[]          = { "Source Code Pro Bold:size=8:style=Bold:
                                         "Font Awesome 6 Free:size=10:style=Solid:antialias=true:autohint=true",
 					"Noto Serif CJK JP:size=10:antialias=true:autohint=true",
                                         "Material Design Icons-Regular:antialias=true:size=8" };
-//static const char *fonts[]          = { "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true",
-//                                        "Font Awesome 6 Free:size=10:style=Regular:antialias=true:autohint=true",
-//                                        "Font Awesome 6 Free:size=10:style=Solid:antialias=true:autohint=true",
-//					"Noto Serif CJK JP:size=10:antialias=true:autohint=true",
-//                                        "Material Design Icons-Regular:antialias=true:size=8" };
-static const char dmenufont[]       =  "JetBrains Mono:size=9:style=Bold:antialias=true:autohint=true";
+static const char dmenufont[]       =   "Source Code Pro:size=8:style=Bold:antialias=true:autohint=true";
 
 #include "scheme.h"
 
