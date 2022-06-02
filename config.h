@@ -11,8 +11,8 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 3;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 10;        /* vertical padding for statusbar */
-static const int user_bh            = 26;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int vertpadbar         = 8;        /* vertical padding for statusbar */
+static const int user_bh            = 24;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "Source Code Pro Bold:size=8:style=Bold:antialias=true:autohint=true",
                                         "Font Awesome 6 Free:size=10:style=Regular:antialias=true:autohint=true",
                                         "Font Awesome 6 Free:size=10:style=Solid:antialias=true:autohint=true",
