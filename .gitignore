@@ -13,3 +13,4 @@ patch.diff
 .cache/clangd/index
 compile_commands.json
 scheme1.h
+dwm-adjacenttag-skipvacant-6.2.diff

@@ -91,10 +91,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,                   focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,                    tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,                   tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_comma,                    focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_n,                        viewnext,       {0} },
+	{ MODKEY,                       XK_p,                        viewprev,       {0} },
 	{ MODKEY,                       XK_grave,                    togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_Tab,	                     togglescratch,  {.ui = 1 } },
 	{ MODKEY,                       XK_x,                        togglescratch,  {.ui = 2 } },
-	{ MODKEY,                       XK_p,                        togglescratch,  {.ui = 3 } },
+	{ MODKEY,                       XK_y,                        togglescratch,  {.ui = 3 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
