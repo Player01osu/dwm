@@ -22,10 +22,6 @@ static const char tagsnormbgcolor[]    = "#111111";
 static const char tagsselfgcolor[]     = "#a62ca6";
 static const char tagsselbgcolor[]     = "#111111";
 
-static const unsigned int baralpha     = 0xdc;
-static const unsigned int barinfoalpha = 0xf0;
-static const unsigned int borderalpha  = OPAQUE;
-
 static const char *colors[][4]         = {
 	/*                   fg                bg               border           float */
 	[SchemeNorm]     = { normfgcolor,      normbgcolor,     normbordercolor, normfloatcolor },
@@ -42,9 +38,9 @@ static const unsigned int alphas[][3] = {
 	/*                      fg      bg            border     */
 	[SchemeNorm]        = { OPAQUE, baralpha,     borderalpha },
 	[SchemeSel]         = { OPAQUE, baralpha,     borderalpha },
-	[SchemeTagsSel]     = { OPAQUE, baralpha,     borderalpha },
-	[SchemeTagsNorm]    = { OPAQUE, baralpha,     borderalpha },
+	[SchemeTagsSel]     = { OPAQUE, baralpha,     borderalpha }, /* tags */
+	[SchemeTagsNorm]    = { OPAQUE, baralpha,     borderalpha }, /* tags */
 	[SchemeStatus]      = { OPAQUE, baralpha,     borderalpha },
-	[SchemeInfoSel]     = { OPAQUE, barinfoalpha, borderalpha }, // Controls alpha of dwmblocks
-	[SchemeInfoNorm]    = { OPAQUE, baralpha,     borderalpha },
+	[SchemeInfoSel]     = { OPAQUE, barinfoalpha, borderalpha }, /* dwmblocks */
+	[SchemeInfoNorm]    = { OPAQUE, 0xac,         borderalpha }, /* Title bar */
 };
