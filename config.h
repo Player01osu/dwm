@@ -1,6 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+static const unsigned int baralpha       = 0xcf;
+static const unsigned int bartagalpha    = 0xbc;
+static const unsigned int bartitlealpha  = 0xaf;
+static const unsigned int barinfoalpha   = 0xf0;
+static const unsigned int borderalpha    = OPAQUE;
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 11;       /* horiz inner gap between windows */
