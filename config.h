@@ -4,7 +4,7 @@
 static const unsigned int baralpha       = 0xcf;
 static const unsigned int barinfopad     = 8;
 static const unsigned int bartagalpha    = 0xbc;
-static const unsigned int bartitlealpha  = 0xaf;
+static const unsigned int bartitlealpha  = 0;
 static const unsigned int barinfoalpha   = 0xf0;
 static const unsigned int borderalpha    = OPAQUE;
 static const unsigned int borderpx  = 0;        /* border pixel of windows */

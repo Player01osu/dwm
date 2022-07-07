@@ -1012,10 +1012,10 @@ void drawbar(Monitor *m)
 	drw_setscheme(drw, scheme[SchemeTagsNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
-	//if ((w = m->ww - tw - x) > bh) {
-	//	drw_setscheme(drw, scheme[SchemeInfoNorm]);
-	//	drw_rect(drw, x - barinfopad, 0, w + barinfopad, bh, 1, 1);
-	//}
+	if ((w = m->ww - tw - x) > bh) {
+		drw_setscheme(drw, scheme[SchemeInfoNorm]);
+		drw_rect(drw, x, 0, w - barinfopad, bh, 1, 1);
+	}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
 }
 
