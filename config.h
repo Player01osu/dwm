@@ -2,6 +2,7 @@
 
 /* appearance */
 static const unsigned int baralpha       = 0xcf;
+static const unsigned int barinfopad     = 8;
 static const unsigned int bartagalpha    = 0xbc;
 static const unsigned int bartitlealpha  = 0xaf;
 static const unsigned int barinfoalpha   = 0xf0;

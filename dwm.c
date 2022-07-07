@@ -423,7 +423,7 @@ void applyrules(Client *c)
 		XFree(ch.res_name);
 	c->tags = c->tags & TAGMASK ?
 			  c->tags & TAGMASK :
-				(c->mon->tagset[c->mon->seltags] & ~SPTAGMASK);
+			  (c->mon->tagset[c->mon->seltags] & ~SPTAGMASK);
 }
 
 int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact)
@@ -577,7 +577,7 @@ void buttonpress(XEvent *e)
 			buttons[i].func(click == ClkTagBar &&
 							buttons[i].arg.i == 0 ?
 						&arg :
-						      &buttons[i].arg);
+						&buttons[i].arg);
 }
 
 void checkotherwm(void)
@@ -892,7 +892,7 @@ int drawstatusbar(Monitor *m, int bh, char *stext)
 	drw_setscheme(drw, scheme[LENGTH(colors)]);
 	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
 	drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
-	drw_rect(drw, x, 0, w, bh, 1, 1);
+	drw_rect(drw, x - barinfopad, 0, w + barinfopad, bh, 1, 1);
 	x++;
 
 	/* process status text */
@@ -993,7 +993,7 @@ void drawbar(Monitor *m)
 		drw_setscheme(
 			drw,
 			scheme[m->tagset[m->seltags] & 1 << i ? SchemeTagsSel :
-								      SchemeTagsNorm]);
+								SchemeTagsNorm]);
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 0 << i);
 		if (ulineall ||
 		    m->tagset[m->seltags] &
@@ -1012,10 +1012,10 @@ void drawbar(Monitor *m)
 	drw_setscheme(drw, scheme[SchemeTagsNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
-	if ((w = m->ww - tw - x) > bh) {
-		drw_setscheme(drw, scheme[SchemeInfoNorm]);
-		drw_rect(drw, x, 0, w, bh, 1, 1);
-	}
+	//if ((w = m->ww - tw - x) > bh) {
+	//	drw_setscheme(drw, scheme[SchemeInfoNorm]);
+	//	drw_rect(drw, x - barinfopad, 0, w + barinfopad, bh, 1, 1);
+	//}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
 }
 
@@ -1301,7 +1301,7 @@ int fake_signal(void)
 		// Check if this is indeed a fake signal
 		if (len_indicator > len_fsignal ?
 			    0 :
-				  strncmp(indicator, fsignal, len_indicator) == 0) {
+			    strncmp(indicator, fsignal, len_indicator) == 0) {
 			memcpy(str_signum, &fsignal[len_indicator],
 			       len_fsignal - len_indicator);
 			str_signum[len_fsignal - len_indicator] = '\0';
@@ -1381,7 +1381,7 @@ void manage(Window w, XWindowAttributes *wa)
 			  (c->x + (c->w / 2) >= c->mon->wx) &&
 			  (c->x + (c->w / 2) < c->mon->wx + c->mon->ww)) ?
 				 bh :
-				       c->mon->my);
+				 c->mon->my);
 	c->bw = borderpx;
 
 	wc.border_width = c->bw;
@@ -1401,11 +1401,14 @@ void manage(Window w, XWindowAttributes *wa)
 		unsigned long *data, n, extra;
 		Monitor *m;
 		Atom atom;
-		if (XGetWindowProperty(dpy, c->win, netatom[NetClientInfo], 0L, 2L, False, XA_CARDINAL,
-				&atom, &format, &n, &extra, (unsigned char **)&data) == Success && n == 2) {
+		if (XGetWindowProperty(dpy, c->win, netatom[NetClientInfo], 0L,
+				       2L, False, XA_CARDINAL, &atom, &format,
+				       &n, &extra,
+				       (unsigned char **)&data) == Success &&
+		    n == 2) {
 			c->tags = *data;
 			for (m = mons; m; m = m->next) {
-				if (m->num == *(data+1)) {
+				if (m->num == *(data + 1)) {
 					c->mon = m;
 					break;
 				}
@@ -2135,7 +2138,7 @@ void seturgent(Client *c, int urg)
 	if (!(wmh = XGetWMHints(dpy, c->win)))
 		return;
 	wmh->flags = urg ? (wmh->flags | XUrgencyHint) :
-				 (wmh->flags & ~XUrgencyHint);
+			   (wmh->flags & ~XUrgencyHint);
 	XSetWMHints(dpy, c->win, wmh);
 	XFree(wmh);
 }
@@ -2197,14 +2200,12 @@ void spawn(const Arg *arg)
 	}
 }
 
-void
-setclienttagprop(Client *c)
+void setclienttagprop(Client *c)
 {
-	long data[] = { (long) c->tags, (long) c->mon->num };
+	long data[] = { (long)c->tags, (long)c->mon->num };
 	XChangeProperty(dpy, c->win, netatom[NetClientInfo], XA_CARDINAL, 32,
-			PropModeReplace, (unsigned char *) data, 2);
+			PropModeReplace, (unsigned char *)data, 2);
 }
-
 
 void tag(const Arg *arg)
 {
