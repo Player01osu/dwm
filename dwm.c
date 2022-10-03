@@ -892,7 +892,7 @@ int drawstatusbar(Monitor *m, int bh, char *stext)
 	drw_setscheme(drw, scheme[LENGTH(colors)]);
 	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
 	drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
-	drw_rect(drw, x - barinfopad, 0, w + barinfopad, bh, 1, 1);
+	drw_rect(drw, x - barinfopad - horizpadbar, 0, w + barinfopad + horizpadbar, bh, 1, 1);
 	x++;
 
 	/* process status text */
@@ -989,7 +989,7 @@ void drawbar(Monitor *m)
 	}
 	x = 0;
 	for (i = 0; i < LENGTH(tags); i++) {
-		w = TEXTW(tags[i]);
+		w = TEXTW(tags[i]) - 2;
 		drw_setscheme(
 			drw,
 			scheme[m->tagset[m->seltags] & 1 << i ? SchemeTagsSel :
@@ -1001,11 +1001,11 @@ void drawbar(Monitor *m)
                        underneath both 'drw_setscheme' and 'drw_text' :) */
 			drw_rect(drw, x + ulinepad,
 				 bh - ulinestroke - (user_bh),
-				 w - (ulinepad * 2), ulinestroke, 1, 0);
+				 w - (ulinepad * 3), ulinestroke, 1, 0);
 		if (occ & 1 << i)
-			drw_rect(drw, x + ulinepad,
+			drw_rect(drw, x + ulinepad * 1.5 + 1,
 				 bh - ulinestroke - (user_bh - 1.5),
-				 w - (ulinepad * 2), ulinestroke, 1, 0);
+				 w - (ulinepad * 3), ulinestroke, 1, 0);
 		x += w;
 	}
 	w = blw = TEXTW(m->ltsymbol);
@@ -1014,7 +1014,7 @@ void drawbar(Monitor *m)
 
 	if ((w = m->ww - tw - x) > bh) {
 		drw_setscheme(drw, scheme[SchemeInfoNorm]);
-		drw_rect(drw, x, 0, w - barinfopad, bh, 1, 1);
+		drw_rect(drw, x - horizpadbar, 0, w - barinfopad, bh, 1, 1);
 	}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
 }
