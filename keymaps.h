@@ -24,11 +24,11 @@ static const char *dmenucmd[]   = {
 	NULL
 };
 static const char *termcmd[]    = { "alacritty", NULL };
-static const char *upvol[]      = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *downvol[]    = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *upvol[]      = { "pactl", "set-sink-volume", "0", "+2%", NULL };
+static const char *downvol[]    = { "pactl", "set-sink-volume", "0", "-2%", NULL };
 static const char *mutevol[]    = { "pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *brightup[]   = { "brightnessctl", "s", "+5%", NULL };
-static const char *brightdown[] = { "brightnessctl", "s", "5-%", NULL };
+static const char *brightup[]   = { "brightnessctl", "s", "+2%", NULL };
+static const char *brightdown[] = { "brightnessctl", "s", "2-%", NULL };
 static const char *maimcopy[]   = { "screencopy", NULL };
 static const char *maimsave[]   = { "screensave", NULL };
 static const char *maimname[]   = { "screenname", NULL };
