@@ -7,6 +7,7 @@ static const Rule rules[] = {
 	{ "osu!.exe", NULL,         NULL,              0,                1,       -1 },
 	{ "wine",     NULL,         NULL,              0,                1,       -1 },
 	{ "Gimp",     NULL,         NULL,              0,                1,       -1 },
+	{ "pcmanfm",  NULL,         NULL,              0,                1,       -1 },
 	{ "Firefox",  NULL,         NULL,              1 << 8,           0,       -1 },
 	{ "TEST",     "TEST",       "TEST",            0,                1,       -1 },
 	{ NULL,       NULL,         "Discord Updater", 0,                1,       -1 },
