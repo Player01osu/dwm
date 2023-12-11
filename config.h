@@ -27,13 +27,13 @@ static const unsigned int user_bh        = 26;     /* 0 means that dwm will calc
 
 static const char *fonts[] = {
 		//"Noto Serif CJK JP:size=10:antialias=true:autohint=true",
-		"NotoColorEmoji:pixelsize=10:antialias=true:autohint=true",
 		"Source Code Pro Bold:size=8:style=Bold:antialias=true:autohint=true",
-		"IPA Pゴシック:size=10:style=Regular:antialias=true:autohint=true",
-		"Fantasque Sans Mono:style=Regular:size=10:antialiasing=true",
 		"Font Awesome 6 Free:size=10:style=Regular:antialias=true:autohint=true",
 		"Font Awesome 6 Free:size=10:style=Solid:antialias=true:autohint=true",
+		"NotoColorEmoji:pixelsize=10:antialias=true:autohint=true",
 		"Material Design Icons-Regular:antialias=true:size=8",
+		"IPA Pゴシック:size=10:style=Regular:antialias=true:autohint=true",
+		"Fantasque Sans Mono:style=Regular:size=10:antialiasing=true",
 };
 static const char dmenufont[]  =   "Source Code Pro:size=8:style=Bold:antialias=true:autohint=true";
 
